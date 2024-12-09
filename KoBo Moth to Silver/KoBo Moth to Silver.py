@@ -17,17 +17,6 @@ job = Job(glueContext)
 from datetime import datetime
 import pandas as pd
 from pyspark.sql.functions import to_timestamp
-dyf_kobo_bronze = glueContext.create_dynamic_frame.from_catalog(database='tgsn_bronze', table_name='kobo_moth', 
-    transformation_ctx="dyf_kobo_bronze")
-spark_df_kobo = dyf_kobo_bronze.toDF()
-spark_df_kobo.createOrReplaceTempView("kobo_bronze")
-query_to_silver_test = '''
-SELECT 
-_id as ID
-from tgsn_bronze.kobo_moth
-'''
-spark_df_kobo_silver_test = spark.sql(query_to_silver_test)
-spark_df_kobo_silver_test.show()
 query_to_silver = '''
 SELECT 
 _id as ID,
@@ -103,7 +92,7 @@ final_instructions,
 to_date(_submission_time) as submission_time,
 _submitted_by as submitted_by,
 _attachments as attachments
-FROM kobo_bronze
+FROM tgsn_bronze.kobo_moth
 WHERE to_date(_submission_time) >= current_date()
 order by _id
 '''
