@@ -12,6 +12,8 @@ Any other job types, as script and visual jobs, can be committed using the AWS c
 
 2 - After saving the notebook job, go to the Script tab. Copy all the code in it and paste it into the corresponding .py file. If the file already had code from a previous commit, make sure to completly overwrite the code to make sure no differences exist between the code in the AWS console and the repo.
 
-3 - Commit the new code to github with an informative message, to the develop branch. 
+3 - Copy any magic configurations applied to the notebook on a txt file called "configurations.txt". This configurations should be done before initiallizing the spark context, and as such they do not appear on the script tab saved before.
+
+4 - Commit the new code to github with an informative message, to the develop branch. 
 
 All jobs should be committed to the develop branch by default. Once the job is ready to be used in a production setting a pull request (PR) can be made to the main branch.
