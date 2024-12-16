@@ -8,11 +8,11 @@ Any other job types, as script and visual jobs, can be committed using the AWS c
 
 ### Commit Notebook jobs:
 
-1 - If you are committing a job for the first time start by creating a folder with the same name as the job. Then create a new .py file with the same name as the job as well.
+1 - If you are committing a job for the first time, start by creating a folder in the repo with the same name as the job. 
 
-2 - After saving the notebook job, go to the Script tab. Copy all the code in it and paste it into the corresponding .py file. If the file already had code from a previous commit, make sure to completly overwrite the code to make sure no differences exist between the code in the AWS console and the repo.
+2 - After saving the notebook job, click 'Download Notebook', the third button to the left of the 'Run' button.
 
-3 - Copy any magic configurations applied to the notebook on a txt file called "configurations.txt". This configurations should be done before initiallizing the spark context, and as such they do not appear on the script tab saved before.
+3 - Save the downloaded file in the corresponding repo folder, overwriting it if a file already exists.
 
 4 - Commit the new code to github with an informative message, to the develop branch. 
 
